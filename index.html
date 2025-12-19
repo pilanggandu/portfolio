@@ -1,0 +1,1172 @@
+<!doctype html>
+<html lang="id" data-theme="system">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Gilang Pandu Permadi</title>
+  <meta name="description" content="Portfolio & Case Studies — Web & Mobile Software Engineer" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --max: 1120px;
+      --radius: 18px;
+
+      --bg: #f7f8fc;
+      --surface: rgba(255,255,255,.78);
+      --surface-solid: #ffffff;
+      --surface-2: rgba(255,255,255,.60);
+
+      --text: #0f172a;
+      --muted: #56627a;
+      --muted2: #6b7a96;
+
+      --line: rgba(15, 23, 42, .12);
+      --line2: rgba(15, 23, 42, .08);
+
+      --shadow: 0 14px 36px rgba(15,23,42,.10);
+      --shadow2: 0 10px 24px rgba(15,23,42,.08);
+
+      --a1: #60a5fa;
+      --a2: #5eead4;
+      --a3: #a78bfa;
+
+      --ring: 0 0 0 3px rgba(37, 99, 235, .18);
+      --chipbg: rgba(15,23,42,.06);
+      --chipbd: rgba(15,23,42,.08);
+
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    @media (prefers-color-scheme: dark){
+      html[data-theme="system"]{
+        --bg:#070a12;
+        --surface: rgba(15, 23, 42, .65);
+        --surface-solid: #0f172a;
+        --surface-2: rgba(15, 23, 42, .50);
+
+        --text:#e5e7eb;
+        --muted:#a7b2cc;
+        --muted2:#90a1c5;
+
+        --line: rgba(255,255,255,.14);
+        --line2: rgba(255,255,255,.08);
+
+        --shadow: 0 18px 52px rgba(0,0,0,.42);
+        --shadow2: 0 12px 30px rgba(0,0,0,.34);
+
+        --ring: 0 0 0 3px rgba(94, 234, 212, .18);
+        --chipbg: rgba(255,255,255,.08);
+        --chipbd: rgba(255,255,255,.10);
+      }
+    }
+
+    html[data-theme="dark"]{
+      --bg:#070a12;
+      --surface: rgba(15, 23, 42, .65);
+      --surface-solid: #0f172a;
+      --surface-2: rgba(15, 23, 42, .50);
+
+      --text:#e5e7eb;
+      --muted:#a7b2cc;
+      --muted2:#90a1c5;
+
+      --line: rgba(255,255,255,.14);
+      --line2: rgba(255,255,255,.08);
+
+      --shadow: 0 18px 52px rgba(0,0,0,.42);
+      --shadow2: 0 12px 30px rgba(0,0,0,.34);
+
+      --ring: 0 0 0 3px rgba(94, 234, 212, .18);
+      --chipbg: rgba(255,255,255,.08);
+      --chipbd: rgba(255,255,255,.10);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      overflow-x:hidden;
+    }
+    a{ color: inherit; text-decoration:none; }
+    a:hover{ text-decoration: underline; }
+    .container{ max-width: var(--max); margin:0 auto; padding: 0 18px; }
+
+    body::before{
+      content:"";
+      position: fixed;
+      inset:-40px;
+      z-index:-2;
+      background:
+        radial-gradient(1200px 700px at 8% -10%, color-mix(in srgb, var(--a1) 28%, transparent), transparent 60%),
+        radial-gradient(900px 700px at 92% 5%,  color-mix(in srgb, var(--a2) 22%, transparent), transparent 62%),
+        radial-gradient(900px 700px at 78% 92%, color-mix(in srgb, var(--a3) 18%, transparent), transparent 62%);
+      filter: saturate(1.05);
+    }
+    body::after{
+      content:"";
+      position: fixed;
+      inset:0;
+      z-index:-1;
+      background:
+        linear-gradient(transparent, rgba(0,0,0,.02)),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, transparent 1px, transparent 12px);
+      opacity: .35;
+      pointer-events:none;
+      mix-blend-mode: overlay;
+    }
+
+    header{
+      position: sticky; top:0; z-index:50;
+      background: color-mix(in srgb, var(--bg) 68%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line2);
+    }
+    .nav{
+      height: 72px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 240px;
+    }
+    .mark{
+      width: 40px; height: 40px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--a1), var(--a2));
+      box-shadow: var(--shadow2);
+      position: relative;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .mark::after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.55), transparent 55%);
+      transform: rotate(18deg);
+      opacity:.55;
+    }
+    .name{ font-weight: 850; letter-spacing: -.2px; }
+    .role{ color: var(--muted); font-size: 13px; margin-top:2px; }
+
+    .navlinks{ display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; align-items:center; }
+    .navlinks a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+    }
+    .navlinks a:hover{
+      color: var(--text);
+      border-color: var(--line2);
+      background: color-mix(in srgb, var(--surface) 70%, transparent);
+      text-decoration:none;
+    }
+
+    .themeBtn{
+      display:inline-flex; align-items:center; justify-content:center;
+      width: 40px; height: 40px;
+      border-radius: 14px;
+      border: 1px solid var(--line2);
+      background: color-mix(in srgb, var(--surface) 78%, transparent);
+      color: var(--text);
+      cursor:pointer;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .themeBtn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
+    .themeBtn:focus{ outline:none; box-shadow: var(--ring); }
+    .themeIcon{ font-size: 16px; }
+
+    section{ padding: 22px 0; }
+
+    .hero{ padding: 26px 0 10px; }
+    .heroCard{
+      border: 1px solid var(--line2);
+      border-radius: calc(var(--radius) + 6px);
+      background: color-mix(in srgb, var(--surface) 78%, transparent);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      overflow:hidden;
+      position:relative;
+    }
+    .heroCard::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius: inherit;
+      padding:1px;
+      background: linear-gradient(135deg,
+        color-mix(in srgb, var(--a1) 55%, transparent),
+        color-mix(in srgb, var(--a2) 55%, transparent),
+        color-mix(in srgb, var(--a3) 35%, transparent)
+      );
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events:none;
+      opacity:.7;
+    }
+    .heroTop{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
+      flex-wrap:wrap;
+    }
+    .heroTitle{
+      margin:0;
+      font-size: 30px;
+      letter-spacing: -.4px;
+    }
+    .heroDesc{
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 86ch;
+      font-size: 14px;
+    }
+    .cta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 16px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line2);
+      background: color-mix(in srgb, var(--surface) 78%, transparent);
+      color: var(--text);
+      font-size: 13px;
+      text-decoration:none;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .btn:hover{ text-decoration:none; transform: translateY(-1px); filter: brightness(1.03); }
+    .btnPrimary{
+      border-color: color-mix(in srgb, var(--a2) 45%, var(--line2));
+      background: linear-gradient(135deg,
+        color-mix(in srgb, var(--a1) 18%, var(--surface)),
+        color-mix(in srgb, var(--a2) 14%, var(--surface))
+      );
+    }
+
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      flex-wrap:wrap;
+      margin-bottom: 12px;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -.2px;
+    }
+    .sectionHead p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 72ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 980px){ .grid{ grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 640px){ .grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      border: 1px solid var(--line2);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--surface) 76%, transparent);
+      box-shadow: var(--shadow2);
+      padding: 14px;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      overflow:hidden;
+      position:relative;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color: color-mix(in srgb, var(--a1) 22%, var(--line2));
+    }
+    .cardTop{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+    }
+    .card h3{
+      margin:0;
+      font-size: 15px;
+      letter-spacing: -.15px;
+    }
+    .sub{
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .pills{ display:flex; gap:8px; flex-wrap:wrap; margin-top: 10px; }
+    .pill{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--chipbd);
+      background: var(--chipbg);
+      color: color-mix(in srgb, var(--text) 88%, var(--muted));
+    }
+    .cardActions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
+    .linkBtn{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--line2);
+      background: color-mix(in srgb, var(--surface-2) 55%, transparent);
+      text-decoration:none;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .linkBtn:hover{ color: var(--text); text-decoration:none; transform: translateY(-1px); filter: brightness(1.02); }
+
+    details.case{
+      border: 1px solid var(--line2);
+      border-radius: calc(var(--radius) + 2px);
+      background: color-mix(in srgb, var(--surface) 76%, transparent);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    details.case + details.case{ margin-top: 10px; }
+    details.case[open]{
+      border-color: color-mix(in srgb, var(--a2) 28%, var(--line2));
+      box-shadow: var(--shadow);
+    }
+    details.case summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 14px 14px;
+      display:flex; align-items:flex-start; justify-content:space-between; gap: 12px;
+      user-select:none;
+    }
+    details.case summary::-webkit-details-marker{ display:none; }
+
+    .sumLeft{ display:flex; align-items:flex-start; gap: 12px; min-width:0; }
+    .ico{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      border: 1px solid var(--line2);
+      background: linear-gradient(135deg,
+        color-mix(in srgb, var(--a1) 20%, var(--surface-2)),
+        color-mix(in srgb, var(--a2) 16%, var(--surface-2))
+      );
+      display:grid; place-items:center;
+      flex: 0 0 auto;
+    }
+    .ico span{ font-size: 16px; }
+    .sumText{ min-width:0; }
+    .sumTitle{ font-weight: 820; font-size: 15px; letter-spacing:-.15px; }
+    .sumDesc{
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 92ch;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+    .sumRight{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex: 0 0 auto;
+    }
+    .dotBadge{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--a1), var(--a2));
+      border: 1px solid color-mix(in srgb, var(--line2) 65%, transparent);
+      box-shadow: 0 10px 24px rgba(96,165,250,.16);
+    }
+    .chev{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      border: 1px solid var(--line2);
+      background: color-mix(in srgb, var(--surface-2) 55%, transparent);
+      display:grid; place-items:center;
+      transition: transform .18s ease;
+      color: var(--muted);
+    }
+    details.case[open] .chev{ transform: rotate(180deg); color: var(--text); }
+
+    .caseBody{
+      border-top: 1px solid var(--line2);
+      padding: 14px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 12px;
+    }
+    @media (max-width: 900px){ .caseBody{ grid-template-columns: 1fr; } }
+
+    .box{
+      border: 1px solid var(--line2);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--surface-2) 62%, transparent);
+      padding: 12px;
+    }
+    .box h4{
+      margin:0 0 8px;
+      font-size: 13px;
+      letter-spacing:.1px;
+    }
+    .box p{ margin:0; color: var(--muted); font-size: 13px; }
+    .box ul{ margin: 8px 0 0 18px; color: var(--muted); font-size: 13px; }
+    .box li{ margin: 6px 0; }
+
+    .flow{
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px dashed color-mix(in srgb, var(--line) 75%, transparent);
+      background: color-mix(in srgb, var(--surface-solid) 70%, transparent);
+      font-family: var(--mono);
+      font-size: 12px;
+      color: color-mix(in srgb, var(--muted) 92%, var(--text));
+      white-space: pre-wrap;
+    }
+    .shots{
+      margin-top: 10px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 760px){ .shots{ grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 520px){ .shots{ grid-template-columns: 1fr; } }
+    .shot{
+      min-height: 88px;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center;
+      border-radius: 16px;
+      border: 1px dashed color-mix(in srgb, var(--line) 80%, transparent);
+      background: color-mix(in srgb, var(--surface-solid) 62%, transparent);
+      color: var(--muted2);
+      font-size: 13px;
+      padding: 10px;
+    }
+
+    footer{
+      margin-top: 24px;
+      padding: 18px 0 34px;
+      border-top: 1px solid var(--line2);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footRow{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      align-items:center;
+    }
+    .mono{ font-family: var(--mono); }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">
+          <img src="assets/img/profile-picture.jpeg" alt="Profile picture of Gilang Pandu Permadi"/>
+        </div>
+        <div>
+          <div class="name">Gilang Pandu Permadi</div>
+          <div class="role">Web & Mobile Software Engineer</div>
+        </div>
+      </div>
+
+      <nav class="navlinks" aria-label="Navigasi">
+        <a href="#projects">Projects</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Kontak</a>
+
+        <button class="themeBtn" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span class="themeIcon" id="themeIcon" aria-hidden="true">🌙</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="heroCard">
+          <div class="heroTop">
+            <div>
+              <h1 class="heroTitle">Portfolio & Case Studies</h1>
+              <p class="heroDesc">
+                Kumpulan project dan ringkasan case study. Kamu bisa expand/collapse tiap case study untuk lihat detail konteks,
+                peran, tantangan, solusi, dan impact.
+              </p>
+              <div class="cta">
+                <a class="btn btnPrimary" href="#case-studies">Lihat Case Studies</a>
+                <a class="btn" href="#projects">Daftar Projects</a>
+                <a class="btn" href="#contact">Hubungi Saya</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>Projects</h2>
+            <p>Ringkasan cepat. Detail lengkap ada di bagian Case Studies.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="cardTop">
+              <h3>SIMA-PRO (ERP)</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub">ERP modular: inventory → finance/accounting. Approval PR/PO + posting jurnal end-to-end.</div>
+            <div class="pills">
+              <span class="pill">Laravel</span><span class="pill">PHP</span><span class="pill">PostgreSQL</span><span class="pill">jQuery AJAX</span>
+            </div>
+            <div class="cardActions">
+              <a class="linkBtn" href="#cs-sima-pro">Case Study</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>SIMA-PRO Mobile</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub">Approval & monitoring periodic untuk owner/management (on-the-go).</div>
+            <div class="pills">
+              <span class="pill">React Native</span><span class="pill">Lumen</span><span class="pill">PostgreSQL</span>
+            </div>
+            <div class="cardActions">
+              <a class="linkBtn" href="#cs-sima-pro-mobile">Case Study</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>Gate Spiner</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub">Geofencing ±500m + anti fake GPS untuk akses gate truk kontainer.</div>
+            <div class="pills">
+              <span class="pill">React Native</span><span class="pill">Geofencing</span><span class="pill">Anti Fake GPS</span>
+            </div>
+            <div class="cardActions">
+              <a class="linkBtn" href="#cs-gate-spiner">Case Study</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>Mobile Gapura</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub">Gate in/out pelabuhan: offline-first, barcode scan, bluetooth print, laporan.</div>
+            <div class="pills">
+              <span class="pill">React Native</span><span class="pill">Offline-first</span><span class="pill">Bluetooth</span><span class="pill">Barcode</span>
+            </div>
+            <div class="cardActions">
+              <a class="linkBtn" href="#cs-mobile-gapura">Case Study</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>e-Gate Inspection</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub">Live CCTV monitoring + upgrade single gate → multi gate dinamis.</div>
+            <div class="pills">
+              <span class="pill">AngularJS</span><span class="pill">.NET</span><span class="pill">DVR/CCTV IP</span>
+            </div>
+            <div class="cardActions">
+              <a class="linkBtn" href="#cs-egate">Case Study</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>CENTRA</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub">Fitur Surat Perjalanan Dinas (SPD) untuk sistem internal karyawan.</div>
+            <div class="pills">
+              <span class="pill">React Native</span><span class="pill">Spring Boot</span>
+            </div>
+            <div class="cardActions">
+              <a class="linkBtn" href="#cs-centra">Case Study</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>CIS PDAM Surabaya</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub">Tagihan/pemakaian + catat meter mandiri + SMS OTP. Rebuild dari aplikasi Java.</div>
+            <div class="pills">
+              <span class="pill">React Native</span><span class="pill">Laravel</span><span class="pill">SMS OTP</span>
+            </div>
+            <div class="cardActions">
+              <a class="linkBtn" href="#cs-cis-pdam">Case Study</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>Soperbos Extension</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub">Auto-chat e-commerce + monitoring traffic. Menyisipkan tombol/aksi ke website existing.</div>
+            <div class="pills">
+              <span class="pill">JavaScript</span><span class="pill">Chrome Extension</span>
+            </div>
+            <div class="cardActions">
+              <a class="linkBtn" href="#cs-soperbos">Case Study</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>Saytum</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub">Tambah fitur consignment (barang titipan/lelang) pada platform logistik kendaraan.</div>
+            <div class="pills">
+              <span class="pill">ReactJS</span><span class="pill">Integrasi API</span>
+            </div>
+            <div class="cardActions">
+              <a class="linkBtn" href="#cs-saytum">Case Study</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-studies">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>Case Studies</h2>
+            <p>Expand untuk detail. Nanti screenshot bisa kamu ganti dari placeholder.</p>
+          </div>
+        </div>
+
+        <details class="case" id="cs-sima-pro" open>
+          <summary>
+            <div class="sumLeft">
+              <div class="ico" aria-hidden="true"><span>🏗️</span></div>
+              <div class="sumText">
+                <div class="sumTitle">SIMA-PRO (ERP)</div>
+                <div class="sumDesc">ERP modular (inventory → finance/accounting). Approval PR/PO + posting jurnal end-to-end.</div>
+              </div>
+            </div>
+            <div class="sumRight">
+              <span class="dotBadge" aria-hidden="true"></span>
+              <div class="chev" aria-hidden="true">⌄</div>
+            </div>
+          </summary>
+          <div class="caseBody">
+            <div class="box">
+              <h4>Context</h4>
+              <p>Digunakan oleh trading, peternakan, perkebunan, pabrik rokok. Scope berkembang dari inventory control menjadi finance & accounting.</p>
+              <h4 style="margin-top:10px;">Role & Stack</h4>
+              <ul>
+                <li>Role: Fullstack Developer</li>
+                <li>Laravel (PHP), JavaScript, jQuery AJAX</li>
+                <li>PostgreSQL</li>
+              </ul>
+              <h4 style="margin-top:10px;">Fitur inti</h4>
+              <ul>
+                <li>Dashboard, user management, master data</li>
+                <li>Purchase, inventory, sales</li>
+                <li>Finance, accounting, manufacture, POS</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>Approval (Purchase)</h4>
+              <div class="flow">PR & PO status:
+Draft → Release → In Review → (Approved | Rejected | Revision → In Review)</div>
+              <h4 style="margin-top:10px;">Integrasi modul</h4>
+              <div class="flow">PR → PO → QC → Stock In → Invoice → Finance
+Setiap transaksi posting jurnal ke Accounting.</div>
+              <h4 style="margin-top:10px;">Challenge / Solution / Impact</h4>
+              <ul>
+                <li>Challenge: integrasi antar modul agar konsisten.</li>
+                <li>Solution: design pattern & konsep modul berdasarkan kebutuhan client.</li>
+                <li>Impact: digitalisasi + data terintegrasi lintas modul.</li>
+              </ul>
+              <div class="shots">
+                <div class="shot">Screenshot: Dashboard (placeholder)</div>
+                <div class="shot">Screenshot: PR/PO Status (placeholder)</div>
+                <div class="shot">Screenshot: Journal (placeholder)</div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="case" id="cs-sima-pro-mobile">
+          <summary>
+            <div class="sumLeft">
+              <div class="ico" aria-hidden="true"><span>📱</span></div>
+              <div class="sumText">
+                <div class="sumTitle">SIMA-PRO Mobile</div>
+                <div class="sumDesc">Approval & monitoring periodic untuk owner/management agar keputusan bisa diambil on-the-go.</div>
+              </div>
+            </div>
+            <div class="sumRight">
+              <span class="dotBadge" aria-hidden="true"></span>
+              <div class="chev" aria-hidden="true">⌄</div>
+            </div>
+          </summary>
+          <div class="caseBody">
+            <div class="box">
+              <h4>Context</h4>
+              <p>Owner butuh approval cepat dan monitoring inventory control saat mobilitas tinggi.</p>
+              <h4 style="margin-top:10px;">Role & Stack</h4>
+              <ul>
+                <li>Role: Fullstack & Mobile (solo)</li>
+                <li>React Native, Lumen (PHP), PostgreSQL</li>
+              </ul>
+              <h4 style="margin-top:10px;">Fitur inti</h4>
+              <ul><li>Dashboard</li><li>Approval</li><li>Monitoring (periodic reports)</li></ul>
+            </div>
+            <div class="box">
+              <h4>Teknis / Challenge / Solution / Impact</h4>
+              <ul>
+                <li>Teknis: integrasi API + approval workflow.</li>
+                <li>Challenge: query backend untuk monitoring.</li>
+                <li>Solution: konsep SOP umum + fokus ringkasan actionable.</li>
+                <li>Impact: mobilitas user meningkat.</li>
+              </ul>
+              <div class="shots">
+                <div class="shot">Screenshot: Dashboard (placeholder)</div>
+                <div class="shot">Screenshot: Approval (placeholder)</div>
+                <div class="shot">Screenshot: Monitoring (placeholder)</div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="case" id="cs-gate-spiner">
+          <summary>
+            <div class="sumLeft">
+              <div class="ico" aria-hidden="true"><span>🛰️</span></div>
+              <div class="sumText">
+                <div class="sumTitle">Gate Spiner (Mobile)</div>
+                <div class="sumDesc">Akses gate kontainer: geofencing ±500m + anti fake GPS, integrasi backend (Spring Boot).</div>
+              </div>
+            </div>
+            <div class="sumRight">
+              <span class="dotBadge" aria-hidden="true"></span>
+              <div class="chev" aria-hidden="true">⌄</div>
+            </div>
+          </summary>
+          <div class="caseBody">
+            <div class="box">
+              <h4>Context & Flow</h4>
+              <p>Dipakai supir/truk kontainer untuk masuk gate: validasi lokasi + identitas, gate terbuka otomatis jika cocok.</p>
+              <div class="flow">Login → Masuk radius geofence → Input identitas → Validasi API → Gate open</div>
+              <h4 style="margin-top:10px;">Role & Stack</h4>
+              <ul><li>Role: Mobile (tim 2, PM client)</li><li>React Native</li></ul>
+            </div>
+            <div class="box">
+              <h4>Teknis / Challenge / Solution / Impact</h4>
+              <ul>
+                <li>Teknis: integrasi API, geofencing, anti fake GPS.</li>
+                <li>Challenge: integrasi API & stabil di lapangan.</li>
+                <li>Solution: urutan validasi dibuat sederhana.</li>
+                <li>Impact: otomasi akses gate + kontrol lokasi lebih kuat.</li>
+              </ul>
+              <div class="shots">
+                <div class="shot">Screenshot: Geofence (placeholder)</div>
+                <div class="shot">Screenshot: Enter Gate (placeholder)</div>
+                <div class="shot">Screenshot: Result (placeholder)</div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="case" id="cs-mobile-gapura">
+          <summary>
+            <div class="sumLeft">
+              <div class="ico" aria-hidden="true"><span>🧾</span></div>
+              <div class="sumText">
+                <div class="sumTitle">Mobile Gapura (Mobile)</div>
+                <div class="sumDesc">Gate in/out pelabuhan: offline-first, barcode scan, bluetooth print, laporan.</div>
+              </div>
+            </div>
+            <div class="sumRight">
+              <span class="dotBadge" aria-hidden="true"></span>
+              <div class="chev" aria-hidden="true">⌄</div>
+            </div>
+          </summary>
+          <div class="caseBody">
+            <div class="box">
+              <h4>Context</h4>
+              <p>Dipakai operator gate. Mobile dipilih karena beberapa titik tidak punya gardu (desktop tidak memungkinkan).</p>
+              <h4 style="margin-top:10px;">Role & Stack</h4>
+              <ul><li>Role: Mobile (tim 2, PM client)</li><li>React Native</li></ul>
+              <h4 style="margin-top:10px;">Fitur inti</h4>
+              <ul><li>Login, catat transaksi, laporan</li><li>Barcode scan</li><li>Bluetooth print</li><li>Offline-first</li></ul>
+            </div>
+            <div class="box">
+              <h4>Teknis / Challenge / Solution / Impact</h4>
+              <ul>
+                <li>Teknis: integrasi API, offline-first, bluetooth printer.</li>
+                <li>Challenge: bluetooth printer (device variatif).</li>
+                <li>Solution: flow sederhana & robust.</li>
+                <li>Impact: tetap berjalan di titik tanpa gardu; proses lebih tertib & terdata.</li>
+              </ul>
+              <div class="shots">
+                <div class="shot">Screenshot: Transaksi (placeholder)</div>
+                <div class="shot">Screenshot: Scan (placeholder)</div>
+                <div class="shot">Screenshot: Print (placeholder)</div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="case" id="cs-egate">
+          <summary>
+            <div class="sumLeft">
+              <div class="ico" aria-hidden="true"><span>🎥</span></div>
+              <div class="sumText">
+                <div class="sumTitle">e-Gate Inspection (Web)</div>
+                <div class="sumDesc">Live CCTV monitoring + multi-gate dinamis (filter gate → koneksi CCTV sesuai pilihan).</div>
+              </div>
+            </div>
+            <div class="sumRight">
+              <span class="dotBadge" aria-hidden="true"></span>
+              <div class="chev" aria-hidden="true">⌄</div>
+            </div>
+          </summary>
+          <div class="caseBody">
+            <div class="box">
+              <h4>Context</h4>
+              <p>Dipakai supervisor untuk monitoring CCTV live dan capture yang diteruskan ke image processing.</p>
+              <h4 style="margin-top:10px;">Role & Stack</h4>
+              <ul><li>Role: Fullstack (tim 2, PM client)</li><li>AngularJS, .NET</li></ul>
+              <h4 style="margin-top:10px;">Scope</h4>
+              <ul><li>Integrasi IP CCTV/DVR</li><li>Live monitoring</li><li>Single-gate → multi-gate dinamis + filter</li></ul>
+            </div>
+            <div class="box">
+              <h4>Teknis / Challenge / Solution / Impact</h4>
+              <ul>
+                <li>Teknis: integrasi API DVR via IP host.</li>
+                <li>Challenge: koneksi CCTV berubah sesuai filter gate.</li>
+                <li>Solution: mapping gate → perangkat DVR yang dinamis.</li>
+                <li>Impact: monitoring jadi dinamis & scalable.</li>
+              </ul>
+              <div class="shots">
+                <div class="shot">Screenshot: Live (placeholder)</div>
+                <div class="shot">Screenshot: Filter Gate (placeholder)</div>
+                <div class="shot">Screenshot: Capture (placeholder)</div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="case" id="cs-centra">
+          <summary>
+            <div class="sumLeft">
+              <div class="ico" aria-hidden="true"><span>🧳</span></div>
+              <div class="sumText">
+                <div class="sumTitle">CENTRA (Web + Mobile)</div>
+                <div class="sumDesc">Pengembangan fitur Surat Perjalanan Dinas (SPD) untuk sistem internal karyawan.</div>
+              </div>
+            </div>
+            <div class="sumRight">
+              <span class="dotBadge" aria-hidden="true"></span>
+              <div class="chev" aria-hidden="true">⌄</div>
+            </div>
+          </summary>
+          <div class="caseBody">
+            <div class="box">
+              <h4>Context</h4>
+              <p>Dipakai staff/user internal; fokus implementasi fitur SPD.</p>
+              <h4 style="margin-top:10px;">Role & Stack</h4>
+              <ul><li>Role: Backend & Mobile (tim 4, PM client)</li><li>React Native, Spring Boot</li></ul>
+              <h4 style="margin-top:10px;">Fitur inti</h4>
+              <ul><li>SPD</li><li>Integrasi API</li></ul>
+            </div>
+            <div class="box">
+              <h4>Challenge / Solution / Impact</h4>
+              <ul><li>Challenge: UI sesuai kebutuhan user.</li><li>Solution: iterasi dari SOP client.</li><li>Impact: penambahan fitur SPD.</li></ul>
+              <div class="shots">
+                <div class="shot">Screenshot: SPD (placeholder)</div>
+                <div class="shot">Screenshot: List (placeholder)</div>
+                <div class="shot">Screenshot: Detail (placeholder)</div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="case" id="cs-cis-pdam">
+          <summary>
+            <div class="sumLeft">
+              <div class="ico" aria-hidden="true"><span>💧</span></div>
+              <div class="sumText">
+                <div class="sumTitle">CIS PDAM Surabaya</div>
+                <div class="sumDesc">Tagihan/pemakaian + catat meter mandiri + SMS OTP. Rebuild dari aplikasi Java.</div>
+              </div>
+            </div>
+            <div class="sumRight">
+              <span class="dotBadge" aria-hidden="true"></span>
+              <div class="chev" aria-hidden="true">⌄</div>
+            </div>
+          </summary>
+          <div class="caseBody">
+            <div class="box">
+              <h4>Context</h4>
+              <p>Self-service pelanggan PDAM agar layanan lebih mudah (tagihan, pemakaian, catat meter, lapor mandiri).</p>
+              <h4 style="margin-top:10px;">Role & Stack</h4>
+              <ul><li>Role: Fullstack (tim 2)</li><li>React Native, Laravel</li></ul>
+              <h4 style="margin-top:10px;">Fitur inti</h4>
+              <ul><li>SMS OTP</li><li>Info tagihan/pemakaian</li><li>Catat meter mandiri</li><li>Lapor mandiri</li></ul>
+            </div>
+            <div class="box">
+              <h4>Challenge / Solution / Impact</h4>
+              <ul><li>Challenge: OTP SMS harus reliable & mudah.</li><li>Solution: flow OTP sederhana + integrasi API.</li><li>Impact: rebuild dari app Java → lebih mudah maintain.</li></ul>
+              <div class="shots">
+                <div class="shot">Screenshot: OTP (placeholder)</div>
+                <div class="shot">Screenshot: Tagihan (placeholder)</div>
+                <div class="shot">Screenshot: Catat Meter (placeholder)</div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="case" id="cs-soperbos">
+          <summary>
+            <div class="sumLeft">
+              <div class="ico" aria-hidden="true"><span>🧩</span></div>
+              <div class="sumText">
+                <div class="sumTitle">Soperbos (Chrome Extension)</div>
+                <div class="sumDesc">Auto-chat e-commerce + monitoring traffic. Inject tombol/aksi ke website existing.</div>
+              </div>
+            </div>
+            <div class="sumRight">
+              <span class="dotBadge" aria-hidden="true"></span>
+              <div class="chev" aria-hidden="true">⌄</div>
+            </div>
+          </summary>
+          <div class="caseBody">
+            <div class="box">
+              <h4>Context</h4>
+              <p>Automasi aktivitas CS untuk follow-up yang lebih cepat & konsisten.</p>
+              <h4 style="margin-top:10px;">Role & Stack</h4>
+              <ul><li>Role: Backend/Logic</li><li>JavaScript (Chrome Extension)</li></ul>
+              <h4 style="margin-top:10px;">Fitur inti</h4>
+              <ul><li>Message bot</li><li>Monitoring traffic pengunjung</li></ul>
+            </div>
+            <div class="box">
+              <h4>Challenge / Solution / Impact</h4>
+              <ul><li>Challenge: integrasi ke website existing (struktur berbeda).</li><li>Solution: konsep flow dulu, lalu adaptasi per halaman/platform.</li><li>Impact: automasi message bot.</li></ul>
+              <div class="shots">
+                <div class="shot">Screenshot: Inject UI (placeholder)</div>
+                <div class="shot">Screenshot: Action (placeholder)</div>
+                <div class="shot">Screenshot: Traffic (placeholder)</div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="case" id="cs-saytum">
+          <summary>
+            <div class="sumLeft">
+              <div class="ico" aria-hidden="true"><span>🚚</span></div>
+              <div class="sumText">
+                <div class="sumTitle">Saytum (Web App)</div>
+                <div class="sumDesc">Tambah fitur consignment (barang titipan/lelang) pada platform logistik kendaraan.</div>
+              </div>
+            </div>
+            <div class="sumRight">
+              <span class="dotBadge" aria-hidden="true"></span>
+              <div class="chev" aria-hidden="true">⌄</div>
+            </div>
+          </summary>
+          <div class="caseBody">
+            <div class="box">
+              <h4>Context</h4>
+              <p>Penambahan modul consignment pada aplikasi existing agar proses barang titipan/lelang terdigitalisasi.</p>
+              <h4 style="margin-top:10px;">Role & Stack</h4>
+              <ul><li>Role: Frontend (tim 2)</li><li>ReactJS (integrasi API ke backend Laravel)</li></ul>
+              <h4 style="margin-top:10px;">Fitur inti</h4>
+              <ul><li>Consignment module</li><li>Integrasi API</li></ul>
+            </div>
+            <div class="box">
+              <h4>Challenge / Solution / Impact</h4>
+              <ul><li>Challenge: memahami codebase existing.</li><li>Solution: belajar kilat source code + mengikuti pola existing.</li><li>Impact: penambahan fitur tanpa rebuild.</li></ul>
+              <div class="shots">
+                <div class="shot">Screenshot: List (placeholder)</div>
+                <div class="shot">Screenshot: Form (placeholder)</div>
+                <div class="shot">Screenshot: Detail (placeholder)</div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>Skills</h2>
+            <p>Ringkas & relevan dengan project.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="cardTop">
+              <h3>Backend</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="pills">
+              <span class="pill">Laravel</span><span class="pill">Lumen</span><span class="pill">.NET</span><span class="pill">PostgreSQL</span><span class="pill">REST</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>Web</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="pills">
+              <span class="pill">ReactJS</span><span class="pill">AngularJS</span><span class="pill">JavaScript</span><span class="pill">jQuery AJAX</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>Mobile</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="pills">
+              <span class="pill">React Native</span><span class="pill">Offline-first</span><span class="pill">Bluetooth</span><span class="pill">Geofencing</span><span class="pill">Barcode</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>Kontak</h2>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="cardTop">
+              <h3>Nomor Telepon/Whatsapp</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub"><span class="mono">+6281238037498</span></div>
+            <div class="cardActions">
+              <a class="linkBtn" href="tel:+6281238037498" rel="noopener noreferrer">Hubungi Nomor</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="cardTop">
+              <h3>Email</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub"><span class="mono">gilangpermadi66@gmail.com</span></div>
+            <div class="cardActions">
+              <a class="linkBtn" href="mailto:gilangpermadi66@gmail.com" rel="noopener noreferrer">Kirim Email</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>LinkedIn</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub"><span class="mono">https://www.linkedin.com/in/gilang-pandu-permadi-544b17199/</span></div>
+            <div class="cardActions">
+              <a class="linkBtn" href="https://www.linkedin.com/in/gilang-pandu-permadi-544b17199/" target="_blank" rel="noreferrer">Buka LinkedIn</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <h3>GitHub</h3>
+              <span class="dotBadge" aria-hidden="true"></span>
+            </div>
+            <div class="sub"><span class="mono">github.com/pilanggandu</span></div>
+            <div class="cardActions">
+              <a class="linkBtn" href="https://github.com/pilanggandu" target="_blank" rel="noreferrer">Buka GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footRow">
+      <div><b style="color:var(--text)">Gilang Pandu Permadi</b> <span style="color:var(--muted)">— Portfolio</span></div>
+      <div class="mono">© <span id="y"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const btn = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+
+    function resolvedTheme(){
+      const t = root.getAttribute("data-theme") || "system";
+      if (t === "dark" || t === "light") return t;
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    function applyTheme(t){
+      root.setAttribute("data-theme", t);
+      localStorage.setItem("theme", t);
+      icon.textContent = resolvedTheme() === "dark" ? "☀️" : "🌙";
+    }
+
+    const saved = localStorage.getItem("theme");
+    applyTheme(saved || "system");
+
+    btn.addEventListener("click", () => {
+      const next = resolvedTheme() === "dark" ? "light" : "dark";
+      applyTheme(next);
+    });
+
+    if (window.matchMedia) {
+      const mq = window.matchMedia("(prefers-color-scheme: dark)");
+      mq.addEventListener?.("change", () => {
+        const t = localStorage.getItem("theme") || "system";
+        if (t === "system") applyTheme("system");
+      });
+    }
+
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
