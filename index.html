@@ -443,6 +443,14 @@
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
+      padding:0;
+      overflow:hidden;
+    }
+    .shot img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
     }
     @media (max-width: 760px){ .shots{ grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 520px){ .shots{ grid-template-columns: 1fr; } }
@@ -714,9 +722,15 @@ Setiap transaksi posting jurnal ke Accounting.</div>
                 <li>Impact: digitalisasi + data terintegrasi lintas modul.</li>
               </ul>
               <div class="shots">
-                <div class="shot">Screenshot: Dashboard (placeholder)</div>
-                <div class="shot">Screenshot: PR/PO Status (placeholder)</div>
-                <div class="shot">Screenshot: Journal (placeholder)</div>
+                <div class="shot">
+                  <img src="assets/img/ss/dashboard.png" alt="SIMA-PRO Dashboard" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/prpo.jpg" alt="SIMA-PRO PR/PO Status" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/journal.png" alt="SIMA-PRO Journal" loading="lazy">
+                </div>
               </div>
             </div>
           </div>
@@ -757,9 +771,15 @@ Setiap transaksi posting jurnal ke Accounting.</div>
                 <li>Impact: mobilitas user meningkat.</li>
               </ul>
               <div class="shots">
-                <div class="shot">Screenshot: Dashboard (placeholder)</div>
-                <div class="shot">Screenshot: Approval (placeholder)</div>
-                <div class="shot">Screenshot: Monitoring (placeholder)</div>
+                <div class="shot">
+                  <img src="assets/img/ss/dashboard.png" alt="SIMA-PRO Mobile" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/prpo.jpg" alt="SIMA-PRO Approval Mobile" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/journal.png" alt="SIMA-PRO Monitoring Mobile" loading="lazy">
+                </div>
               </div>
             </div>
           </div>
@@ -796,9 +816,15 @@ Setiap transaksi posting jurnal ke Accounting.</div>
                 <li>Impact: otomasi akses gate + kontrol lokasi lebih kuat.</li>
               </ul>
               <div class="shots">
-                <div class="shot">Screenshot: Geofence (placeholder)</div>
-                <div class="shot">Screenshot: Enter Gate (placeholder)</div>
-                <div class="shot">Screenshot: Result (placeholder)</div>
+                <div class="shot">
+                  <img src="assets/img/ss/dashboard.png" alt="Gate Spiner" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/prpo.jpg" alt="Gate Spiner Login" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/journal.png" alt="Gate Spiner Result" loading="lazy">
+                </div>
               </div>
             </div>
           </div>
@@ -836,9 +862,15 @@ Setiap transaksi posting jurnal ke Accounting.</div>
                 <li>Impact: tetap berjalan di titik tanpa gardu; proses lebih tertib & terdata.</li>
               </ul>
               <div class="shots">
-                <div class="shot">Screenshot: Transaksi (placeholder)</div>
-                <div class="shot">Screenshot: Scan (placeholder)</div>
-                <div class="shot">Screenshot: Print (placeholder)</div>
+                <div class="shot">
+                  <img src="assets/img/ss/dashboard.png" alt="Mobile Gapura" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/prpo.jpg" alt="Mobile Gapura Login" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/journal.png" alt="Mobile Gapura Result" loading="lazy">
+                </div>
               </div>
             </div>
           </div>
@@ -876,9 +908,15 @@ Setiap transaksi posting jurnal ke Accounting.</div>
                 <li>Impact: monitoring jadi dinamis & scalable.</li>
               </ul>
               <div class="shots">
-                <div class="shot">Screenshot: Live (placeholder)</div>
-                <div class="shot">Screenshot: Filter Gate (placeholder)</div>
-                <div class="shot">Screenshot: Capture (placeholder)</div>
+                <div class="shot">
+                  <img src="assets/img/ss/dashboard.png" alt="e-Gate Inspection" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/prpo.jpg" alt="e-Gate Inspection Filter Gate" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/journal.png" alt="e-Gate Inspection Capture" loading="lazy">
+                </div>
               </div>
             </div>
           </div>
@@ -911,9 +949,15 @@ Setiap transaksi posting jurnal ke Accounting.</div>
               <h4>Challenge / Solution / Impact</h4>
               <ul><li>Challenge: UI sesuai kebutuhan user.</li><li>Solution: iterasi dari SOP client.</li><li>Impact: penambahan fitur SPD.</li></ul>
               <div class="shots">
-                <div class="shot">Screenshot: SPD (placeholder)</div>
-                <div class="shot">Screenshot: List (placeholder)</div>
-                <div class="shot">Screenshot: Detail (placeholder)</div>
+                <div class="shot">
+                  <img src="assets/img/ss/dashboard.png" alt="Centra Mobile" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/prpo.jpg" alt="Centra Mobile List" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/journal.png" alt="Centra Mobile Detail" loading="lazy">
+                </div>
               </div>
             </div>
           </div>
@@ -946,9 +990,15 @@ Setiap transaksi posting jurnal ke Accounting.</div>
               <h4>Challenge / Solution / Impact</h4>
               <ul><li>Challenge: OTP SMS harus reliable & mudah.</li><li>Solution: flow OTP sederhana + integrasi API.</li><li>Impact: rebuild dari app Java → lebih mudah maintain.</li></ul>
               <div class="shots">
-                <div class="shot">Screenshot: OTP (placeholder)</div>
-                <div class="shot">Screenshot: Tagihan (placeholder)</div>
-                <div class="shot">Screenshot: Catat Meter (placeholder)</div>
+                <div class="shot">
+                  <img src="assets/img/ss/otp.png" alt="OTP" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/tagihan.png" alt="Tagihan" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/catat-meter.png" alt="Catat Meter" loading="lazy">
+                </div>
               </div>
             </div>
           </div>
@@ -981,9 +1031,15 @@ Setiap transaksi posting jurnal ke Accounting.</div>
               <h4>Challenge / Solution / Impact</h4>
               <ul><li>Challenge: integrasi ke website existing (struktur berbeda).</li><li>Solution: konsep flow dulu, lalu adaptasi per halaman/platform.</li><li>Impact: automasi message bot.</li></ul>
               <div class="shots">
-                <div class="shot">Screenshot: Inject UI (placeholder)</div>
-                <div class="shot">Screenshot: Action (placeholder)</div>
-                <div class="shot">Screenshot: Traffic (placeholder)</div>
+                <div class="shot">
+                  <img src="assets/img/ss/inject-ui.png" alt="Inject UI" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/action.png" alt="Action" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/traffic.png" alt="Traffic" loading="lazy">
+                </div>
               </div>
             </div>
           </div>
@@ -1015,10 +1071,16 @@ Setiap transaksi posting jurnal ke Accounting.</div>
             <div class="box">
               <h4>Challenge / Solution / Impact</h4>
               <ul><li>Challenge: memahami codebase existing.</li><li>Solution: belajar kilat source code + mengikuti pola existing.</li><li>Impact: penambahan fitur tanpa rebuild.</li></ul>
-              <div class="shots">
-                <div class="shot">Screenshot: List (placeholder)</div>
-                <div class="shot">Screenshot: Form (placeholder)</div>
-                <div class="shot">Screenshot: Detail (placeholder)</div>
+               <div class="shots">
+                <div class="shot">
+                  <img src="assets/img/ss/dashboard.png" alt="Saytum" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/prpo.jpg" alt="Saytum Auction" loading="lazy">
+                </div>
+                <div class="shot">
+                  <img src="assets/img/ss/journal.png" alt="Saytum Tracking Order" loading="lazy">
+                </div>
               </div>
             </div>
           </div>
